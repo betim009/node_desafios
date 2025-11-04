@@ -1,4 +1,4 @@
-# node_desafios
+# Desafios ambiente NODE
 
 ## Instalação
 - Após clonar o repositório, instale as dependências com:
