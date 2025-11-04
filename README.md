@@ -15,9 +15,9 @@ npm test
 ```
 
 ## Executar um teste específico
-- Para rodar apenas um arquivo de teste, informe o caminho usando `--runTestsByPath`. Exemplos:
+- Use o Jest diretamente para especificar o arquivo desejado:
 
 ```bash
-npm test -- --runTestsByPath tests/scriptEstoque.test.js
-npm test -- --runTestsByPath tests/scritptMaxNumber.test.js
+npx jest tests/scriptEstoque.test.js
+npx jest tests/scritptMaxNumber.test.js
 ```

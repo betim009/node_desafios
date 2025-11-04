@@ -32,7 +32,39 @@ no "estoque completo".
  * retornando uma lista com os avisos de estoque zerado ou "estoque completo".
  */
 function estoque(produtos = [], quantidades = []) {
-  return "Uuhu";
+    if (!Array.isArray(produtos) || !Array.isArray(quantidades)) {
+        throw new TypeError('Os parâmetros devem ser arrays.');
+    }
+
+    if (produtos.length !== quantidades.length) {
+        throw new Error('As listas devem ter o mesmo tamanho.');
+    }
+
+    const zerados = [];
+
+    for (let index = 0; index < produtos.length; index += 1) {
+        const produto = produtos[index];
+        const quantidade = quantidades[index];
+
+        if (typeof produto !== 'string') {
+            throw new TypeError('Todos os produtos devem ser strings.');
+        }
+
+        if (!Number.isInteger(quantidade)) {
+            throw new TypeError('Todas as quantidades devem ser números inteiros.');
+        }
+
+        if (quantidade === 0) {
+            zerados.push(`${produto} zerado`);
+        }
+    }
+
+    if (zerados.length === 0) {
+        return ['estoque completo'];
+    }
+
+    return zerados;
 }
 
+console.log(estoque(["Mouse"], [0]))
 module.exports = { estoque };
