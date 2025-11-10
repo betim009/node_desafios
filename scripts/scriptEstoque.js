@@ -32,7 +32,24 @@ no "estoque completo".
  * retornando uma lista com os avisos de estoque zerado ou "estoque completo".
  */
 function estoque(produtos = [], quantidades = []) {
-  return "Uuhu";
+  const nomeProduto = [];
+
+  if (produtos.length !== quantidades.length) {
+    throw new Error("As listas devem ter o mesmo tamanho.");
+  }
+
+  for (let i = 0; i < produtos.length; i++) {
+    if (quantidades[i] === 0) {
+      nomeProduto.push(`${produtos[i]} zerado`);
+    }
+  }
+
+  if (nomeProduto.length === 0) {
+    return ["estoque completo"];
+  }
+
+  console.log(nomeProduto);
+  return nomeProduto;
 }
 
 module.exports = { estoque };
